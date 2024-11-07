@@ -1,32 +1,22 @@
+"""module qui permet de savoir si un nombre est premier ou non"""
+from math import sqrt
 def isprime(p):
-
-    # votre code ici
-
-premier =True
-
-s=int(sqrt(p))
-for i in range (2,s+1):
-    reste=p%i
-    if reste==0:
-        premier=False
-        diviseur=i
-        m=int(p/i)
-        break
-if premier ==False:
-    return False
-else:
+    '''retourne si le nombre en paramètre est premier ou non'''
+    if p==1:
+        return False
+    s=int(sqrt(p))
+    for i in range (2,s+1):
+        if p%i==0:
+            return False
     return True
 
-    pass
-
-@@ -15,7 +29,9 @@ def isprime(p):
 def main():
-
-    # vos appels à la fonction secondaire ici
-
-    prime(19)
-    prime(9)
-    prime(55)
+    '''permet de faire des appels de la fonction isprime()'''
+    print(isprime(19))
+    print(isprime(9))
+    print(isprime(55))
     for n in range(100):
         if isprime(n):
             print(n, end=", ")
+if __name__ == '__main__':
+    main()
